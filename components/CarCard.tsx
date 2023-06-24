@@ -12,6 +12,8 @@ interface CarCardProps {
   car: CarProps;
 }
 
+//Dentro da função CarCard, você está desestruturando o objeto car para extrair as propriedades
+//city_mpg, year, make, model, transmission e drive.
 const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
 

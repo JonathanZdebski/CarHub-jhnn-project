@@ -29,3 +29,9 @@ export interface CarProps {
     transmission:string;
     year:number;
 }
+
+/*
+Essas interfaces são úteis para definir a estrutura de dados esperada e facilitar a tipagem correta
+ dos componentes e funções relacionados a botões, busca de fabricantes e informações de carros em um
+  aplicativo React.
+*/

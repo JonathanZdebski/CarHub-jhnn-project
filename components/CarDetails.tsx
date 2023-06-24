@@ -7,6 +7,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CarProps } from "@/types";
 import { generateCarImageUrl } from "@/utils";
 
+/*
+CarDetailsPropsdefine as propriedades esperadas pelo componente de detalhes do carro, incluindo a
+ informação se o modal está aberto ou fechado, a função para fechar o modal e os detalhes específicos
+  do carro serão exibidos.
+*/
 interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -18,13 +23,13 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
         <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          as={Fragment} //Fragment é usado para retornar múltiplos elementos sem adicionar nós extras ao DOM
+          enter="ease-out duration-300" // é a classe de animação que será aplicada quando o elemento entrar na tela.
+          enterFrom="opacity-0" //é a classe de animação que define o estado inicial da animação de entrada.
+          enterTo="opacity-100" // a classe de animação que define o estado final da animação de entrada.
+          leave="ease-in duration-200" //é a classe de animação que será aplicada quando o elemento sair da tela.
+          leaveFrom="opacity-100" //é a classe de animação que define o estado inicial da animação de saída.
+          leaveTo="opacity-0" // é a classe de animação que define o estado final da animação de saída.
         >
           <div className="fixed inset-0 bg-black bg-opacity-25" />
         </Transition.Child>

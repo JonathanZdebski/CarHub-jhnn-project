@@ -1,5 +1,8 @@
 import { CarProps } from "@/types";
 
+// fetchCars realiza uma solicitação assíncrona para obter informações sobre carros. Ela utiliza a 
+//API "cars-by-api-ninjas.p.rapidapi.com" e passa um cabeçalho contendo uma chave de autenticação para 
+//autenticar a solicitação.
 export async function fetchCars() {
     const headers = {
 		'X-RapidAPI-Key': 'fc248a0f7emsh593a7f4cdb72c14p12e769jsn406e8bcf6573',
@@ -12,6 +15,12 @@ export async function fetchCars() {
 
     return result;
 }
+
+/*
+calculateCarRent calcula o preço de aluguel de um carro com base na eficiência de combustível da cidade 
+(city_mpg) e no ano do carro. Ela utiliza fatores de cálculo para levar em consideração a quilometragem
+ e a idade do veículo.
+*/
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
     const basePricePerDay = 50; // Base rental price per day in dollars
@@ -27,6 +36,13 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   
     return rentalRatePerDay.toFixed(0);
   };
+
+/*
+generateCarImageUrl gera a URL de uma imagem de carro com base nas informações do carro fornecidas
+ como parâmetro (car). Ela constrói uma URL utilizando a API "cdn.imagin.studio/getimage" e adiciona 
+ parâmetros como a marca (make), modelo (model), ano (year) e ângulo (angle) do carro. A URL gerada 
+ é retornada como resultado.
+*/
 
   export const generateCarImageUrl = (car: CarProps, angle?: string) => {
     const url = new URL("https://cdn.imagin.studio/getimage");
